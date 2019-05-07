@@ -1,0 +1,215 @@
+dnspython (1.16.0-1) unstable; urgency=medium
+
+  * Update debian/watch to use Github
+  * New upstream release
+    - Drop all patches, incorporated upstream
+  * Bump standards-version to 4.2.1 without further change
+
+ -- Scott Kitterman <scott@kitterman.com>  Sat, 22 Dec 2018 20:13:05 -0500
+
+dnspython (1.15.0-2) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/control: Set Vcs-* to salsa.debian.org
+  * d/control: Remove ancient X-Python3-Version field
+  * Convert git repository from git-dpm to gbp layout
+
+  [ Scott Kitterman ]
+  * Add debian/patches/0002-fix-error-when-parsing-nsec3-bitmap-from-
+    text.patch from upstream (Closes: #915866)
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 07 Dec 2018 08:23:43 -0500
+
+dnspython (1.15.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Fix file write location in testToFileFilename.
+    - Add debian/patches/0001-Fix-file-write-location-in-testToFileFilename
+      .patch
+  * Bump compat/debhelper version to 9 due to compat levels < 9 being
+    deprecated
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 24 Oct 2016 08:00:17 -0400
+
+dnspython (1.14.0-3) unstable; urgency=medium
+
+  * Drop http_proxy (problem is DNS traffic on port 53)
+  * Disable tests unless manually enabled to avoid network access during
+    build (Closes: #830170)
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 15 Jul 2016 01:17:53 -0400
+
+dnspython (1.14.0-2) unstable; urgency=medium
+
+  * Update python3-dnspython description synopsis
+  * Add http_proxy in debian/rules so network access is not attempted - Policy
+    4.9, added in 3.9.7 (Closes: #830170)
+
+ -- Scott Kitterman <scott@kitterman.com>  Thu, 07 Jul 2016 17:04:28 -0400
+
+dnspython (1.14.0-1) unstable; urgency=medium
+
+  * Add patch in tests/test_resolver.py to check if the Internet is reachable
+    and to skip tests that require it if it is not
+  * New upstream release
+  * Update debian/copyright
+
+ -- Scott Kitterman <scott@kitterman.com>  Sat, 28 May 2016 13:10:13 -0400
+
+dnspython (1.13.0-2) unstable; urgency=medium
+
+  * Revert disabling of zone tests
+  * Add netbase to build-depends to provide /etc/protocols so zone tests will
+    work
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed, 25 May 2016 11:11:52 -0400
+
+dnspython (1.13.0-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * Fixed VCS URL (https)
+
+  [ Scott Kitterman ]
+  * New upstream release (Closes: #823456)
+    - Bump minimum python3 version to 3.3
+    - Add python/python3-setuptools to build-depends
+    - Delete obsolete debian/docs file
+  * Build python3-dnspython for dnspython source instead of from dedicated
+    dnspython3 source
+    - Add Matthew Grant to dnspython uploaders
+    - Migrate python3 related dnspython3 entries for debian/control
+    - Update debian/rules to use dh_python3 and pybuild
+    - Set PYBUILD_NAME=dnspython in debian/rules
+    - Use binary specific examples files for multi-binary package
+  * Bump standards version to 3.9.8 without further change
+  * Delete obsolete debian/source/options file
+  * Temporarily disable non-working zone tests.
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed, 25 May 2016 02:13:01 -0400
+
+dnspython (1.12.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Add explicit build-dep on dh-python to make use of the newer version
+
+ -- Scott Kitterman <scott@kitterman.com>  Sun, 14 Sep 2014 22:46:43 -0400
+
+dnspython (1.11.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Bump standards version to 3.9.5 without further change
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed, 06 Nov 2013 01:57:34 -0500
+
+dnspython (1.11.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Agreed maintainer switch to DPMT
+    - Add Vcs-* fields to debian/control
+  * Bump minimum debhelper version to 8.1 and compat to 8 for build-arch/indep
+    support
+  * Bump standards version to 3.9.4 without further change
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed, 17 Jul 2013 02:49:46 -0400
+
+dnspython (1.10.0-1) unstable; urgency=low
+
+  * Add myself to uploaders
+  * New upstream release.
+    - Remove TODO from debian/docs since it no longer exists.
+  * Switch to dh_python2. (Closes: #671406, #599911)
+    - Bump minimum python-all build-depends version to 2.6.6-3~.
+    - Drop build-depends on python-support.
+    - Build --with python2.
+  * Bump standards version to 3.9.3 without further change.
+  * Add Homepage: field to debian/control.
+
+ -- Scott Kitterman <scott@kitterman.com>  Mon, 04 Jun 2012 15:38:45 -0400
+
+dnspython (1.9.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Sun, 06 Nov 2011 15:04:19 -0500
+
+dnspython (1.8.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Sun, 20 Jun 2010 16:19:46 -0400
+
+dnspython (1.7.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Sun, 23 Aug 2009 14:17:25 -0400
+
+dnspython (1.6.0-1.1) unstable; urgency=low
+
+  * NMU. Rebuild to move files to /usr/share/pyshared. Closes: #490457.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 18 Jul 2008 15:57:01 +0000
+
+dnspython (1.6.0-1) unstable; urgency=low
+
+  * New upstream release:
+    - This is primarily a bug fix release. The only new functionality is the
+    function dns.inet.is_multicast().
+  * Fix broken watch file.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Wed, 28 Nov 2007 18:32:24 -0500
+
+dnspython (1.5.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * New maintainer; closes: #437695.
+  * Drop "dummy package" statement from package description; closes: #420776.
+  * Package is compliant with Debian Python policy; closes: #373315.
+  * Add watch file.
+  * Add build dependency on python-central.
+  * Drop build dependencies on cdbs and python-support.
+  * Ship the upstream README file since it contains useful information.
+
+ -- Robert S. Edmonds <edmonds@debian.org>  Tue, 14 Aug 2007 06:35:13 -0400
+
+dnspython (1.3.5-3.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Drop old custom python-distutils.mk things, use cdbs.
+  * Migrate to the new python policy (Closes: #373315).
+
+ -- Pierre Habouzit <madcoder@debian.org>  Thu, 29 Jun 2006 14:13:10 +0200
+
+dnspython (1.3.5-3) unstable; urgency=low
+
+  * applied patch from Dan Pascu to avoid doing a backoff wait, even if
+    a query was successful. Patch was forwarded upstream and was already applied
+    to upstreams subversion repository.
+
+ -- Patrick Dreker <patrick@dreker.org>  Sat, 18 Mar 2006 16:24:59 +0100
+
+dnspython (1.3.5-2) unstable; urgency=low
+
+  * change "Architecture: any" to "Architecture: all" as package
+    only contains python code (Closes: #357052).
+  * remove Python 2.2 from debian/rules, packages for 2.2 were not
+    built anyways.
+
+ -- Patrick Dreker <patrick@dreker.org>  Wed, 15 Mar 2006 19:48:03 +0100
+
+dnspython (1.3.5-1) unstable; urgency=low
+
+  [ Patrick Dreker ]
+  * New upstream release.
+
+  [ Florian Ragwitz ]
+  * Patrick is the official Maintainer now.
+  * Updated the Uploaders field with my new maintainer address.
+
+ -- Florian Ragwitz <rafl@debian.org>  Tue, 14 Mar 2006 21:36:34 +0100
+
+dnspython (1.3.4-1) unstable; urgency=low
+
+  * Initial release (Closes: #335260).
+
+ -- Florian Ragwitz <rafl@debianforum.de>  Sat, 22 Oct 2005 20:53:19 +0200
